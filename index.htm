@@ -3,93 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0e141c">
+<meta name="theme-color" content="#0d131d">
 <title>Spaedr Studio | بازی‌های فارسی‌شده</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0e141c;--sf:#1a222d;--sf2:#232d3b;--tx:#f1f4f9;--mut:#8b97a8;--ac:#4ca3ff}
+:root{--bg:#0d131d;--pill:#1b2330;--nav:#161e2b;--line:#252f40;--tx:#f1f4fa;--mut:#8f9bb0;--ac:#4fa6ff}
 *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
-body{background:var(--bg);color:var(--tx);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.6;padding-bottom:110px}
+body{background:var(--bg);color:var(--tx);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.7;padding-bottom:120px}
 a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.app{max-width:720px;margin:0 auto}
+.app{max-width:560px;margin:0 auto}
 .top{display:flex;gap:12px;align-items:center;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 10px}
-.search{flex:1;display:flex;align-items:center;gap:10px;background:var(--sf);border-radius:20px;padding:0 16px;height:52px;color:var(--mut)}
-.search input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--tx);font:inherit;font-size:15px}
-.search svg{flex:none}
-.me{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#58e0c4,#3a7bff);display:grid;place-items:center;font-weight:700;font-size:22px;color:#08121f;flex:none}
-.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 16px;scrollbar-width:none}
-.rail::-webkit-scrollbar{display:none}
-.slide{flex:none;width:86%;scroll-snap-align:center;cursor:pointer}
-.banner{position:relative;height:200px;border-radius:20px;overflow:hidden;background:var(--sf)}
-.banner img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.banner img.bg.blur{filter:blur(26px) brightness(.7);transform:scale(1.5)}
-.banner .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,0) 65%)}
-.banner .big{position:absolute;left:50%;top:42%;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:22px;object-fit:cover;box-shadow:0 8px 24px rgba(0,0,0,.45)}
-.banner h3{position:absolute;right:16px;left:16px;bottom:12px;font-size:16px;font-weight:700}
-.feat{display:flex;align-items:center;gap:12px;padding:14px 4px 2px}
-.feat .ic{width:60px;height:60px;border-radius:16px}
-.feat .tx{flex:1;min-width:0}
-.feat b{display:block;font-size:15px;font-weight:500;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.feat small{color:var(--mut);font-size:13px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.inst{flex:none;border:1.5px solid #5b6b80;color:var(--ac);border-radius:20px;padding:6px 26px;font-size:15px}
-.sec{margin-top:26px}
-.sh{display:flex;justify-content:space-between;align-items:center;padding:0 16px 12px}
-.sh h2{font-size:19px;font-weight:700}
-.sh button{color:var(--ac);font-size:15px}
-.tiles{display:flex;gap:14px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
-.tiles::-webkit-scrollbar{display:none}
-.tile{flex:none;width:112px;cursor:pointer}
-.tile .ic{width:112px;height:112px;border-radius:26px}
-.tile p{margin-top:6px;font-size:14px;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.ic{background:var(--sf2);display:grid;place-items:center;font-weight:700;color:var(--ac);overflow:hidden;font-size:30px;flex:none}
-.ic img{width:100%;height:100%;object-fit:cover}
-.list{padding:0 16px;display:grid;gap:6px}
-.row{display:flex;align-items:center;gap:12px;padding:10px 0;cursor:pointer}
-.row .ic{width:64px;height:64px;border-radius:17px}
-.row .tx{flex:1;min-width:0}
-.row b{display:block;font-weight:500;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.row small{color:var(--mut);font-size:12.5px}
-.empty{text-align:center;color:var(--mut);padding:50px 20px}
-.about{padding:10px 20px;color:#c5cddb;font-size:15px}
-.about h2{color:var(--tx);margin-bottom:8px}
-.about a.inst{display:inline-block;margin-top:14px}
-nav{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);width:min(440px,calc(100% - 28px));background:var(--sf);border-radius:30px;padding:8px;display:flex;gap:4px;box-shadow:0 8px 30px rgba(0,0,0,.5);z-index:5}
-nav button,nav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0;border-radius:24px;color:var(--mut);font-size:13px}
-nav .on{background:#0e141c;color:var(--ac)}
-dialog{background:var(--sf);color:var(--tx);border:0;border-radius:26px 26px 0 0;padding:20px;width:min(560px,100%);max-width:100%;margin:auto auto 0;max-height:85vh}
-dialog::backdrop{background:rgba(3,6,12,.75)}
-.dh{display:flex;gap:14px;align-items:center;margin-bottom:12px}
-.dh .ic{width:84px;height:84px;border-radius:22px}
-.dh h2{font-size:19px;line-height:1.5}
-.dh small{color:var(--mut)}
-.desc{color:#c5cddb;font-size:14.5px;white-space:pre-line;margin:10px 0 18px;max-height:34vh;overflow:auto}
-.dl{display:block;text-align:center;background:var(--ac);color:#06182c;border-radius:16px;padding:13px;font-weight:700;font-size:16px}
-:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.avatar{width:46px;height:46px;border-radius:50%;flex:none;background:linear-gradient(135deg,#58e0c4,#3a7bff);display:grid;place-items:center;font-weight:800;color:#07131f;font-size:20px}
+.search{flex:1;display:flex;align-items:center;gap:10px;background:var(--pill);border-radius:30px;padding:0 16px;height:52px}
+.search svg{width:22px;height:22px;stroke:var(--mut);fill:none;stroke-width:2;flex:none}
+.search input{flex:1;background:none;border:0;color:var(--tx);font:inherit;font-size:15px;min-width:0;outline:0}
+.search input::placeholder{color:var(--mut)}
+.view{display:none}.view.on{display:block}
+.banners{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 16px;scrollbar-width:none}
+.banners::-webkit-scrollbar,.row::-webkit-scrollbar{display:none}
+.bn{flex:0 0 88%;scroll-snap-align:center;height:210px;border-radius:20px;position:relative;overflow:hidden;background:#1b2330;cursor:pointer}
+.bn .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.bn .bg.blur{filter:blur(28px) brightness(.7);transform:scale(1.4)}
+.bn:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 60%)}
+.bn .t{position:absolute;z-index:2;right:16px;left:16px;bottom:14px}
+.bn .t b{display:block;font-size:19px;line-height:1.4}
+.bn .t span{font-size:13px;color:#d6dbe6}
+.bn .ic{position:absolute;z-index:2;top:14px;right:14px;width:56px;height:56px;border-radius:15px}
+.chip{position:absolute;z-index:2;left:14px;bottom:14px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:10px;padding:2px 14px;font-size:13px}
+.feat{display:flex;align-items:center;gap:14px;padding:14px 16px}
+.feat .info{flex:1;min-width:0}
+.feat b{display:block;font-size:16px;line-height:1.5}
+.sub{color:var(--mut);font-size:13px}
+.btn{border:1.5px solid #6c7a92;color:var(--ac);background:none;border-radius:22px;padding:7px 26px;font:inherit;font-size:15px;cursor:pointer;flex:none}
+.btn.fill{background:var(--ac);border-color:var(--ac);color:#05111d;font-weight:600}
+.sec{display:flex;justify-content:space-between;align-items:center;padding:26px 16px 12px}
+.sec h2{font-size:19px;font-weight:800}
+.sec a{color:var(--ac);font-size:14px;cursor:pointer}
+.row{display:flex;gap:16px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
+.card{flex:0 0 28vw;max-width:128px;min-width:96px;cursor:pointer}
+.card p{margin-top:8px;font-size:14px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ico{width:100%;aspect-ratio:1;border-radius:22%;background:var(--pill);display:grid;place-items:center;font-weight:800;font-size:34px;color:var(--ac);overflow:hidden;flex:none}
+.ico img{width:100%;height:100%;object-fit:cover;display:block}
+.list{padding:6px 16px}
+.li{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.li .ico{width:64px;font-size:26px}
+.li .info{flex:1;min-width:0}
+.li b{display:block;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.state{text-align:center;color:var(--mut);padding:50px 16px}
+.about{padding:20px 20px;color:#cfd6e4;font-size:15px}
+.about h2{margin-bottom:8px}
+.nav{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);width:min(92vw,520px);background:var(--nav);border-radius:34px;padding:8px;display:flex;gap:4px;box-shadow:0 8px 30px rgba(0,0,0,.5);z-index:5}
+.nav button{flex:1;background:none;border:0;color:var(--mut);font:inherit;font-size:13px;display:flex;flex-direction:column;align-items:center;gap:0;padding:8px 4px;border-radius:26px;cursor:pointer}
+.nav button.on{background:#0a0f17;color:var(--ac)}
+.nav svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+button:focus-visible,.card:focus-visible,.li:focus-visible,.bn:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+dialog{background:#141b27;color:var(--tx);border:0;border-radius:26px 26px 0 0;padding:22px 20px 28px;width:100%;max-width:560px;margin:auto auto 0;max-height:86vh;overflow:auto}
+dialog::backdrop{background:rgba(3,6,12,.72)}
+.dh{display:flex;gap:16px;align-items:center;margin-bottom:12px}
+.dh .ico{width:84px}
+.dh h3{font-size:19px;line-height:1.5}
+.desc{color:#cbd3e2;font-size:14.5px;white-space:pre-line;margin:10px 0 20px}
+.dl{display:block;text-align:center;padding:13px}
+@media (prefers-reduced-motion:no-preference){.banners{scroll-behavior:smooth}}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="top">
+    <div class="avatar">S</div>
     <label class="search">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="جستجوی بازی" aria-label="جستجوی بازی">
     </label>
-    <div class="me" aria-hidden="true">S</div>
   </div>
-  <div id="view"></div>
+
+  <section class="view on" id="v-home">
+    <div class="banners" id="banners"></div>
+    <div class="feat" id="feat"></div>
+    <div id="homeRows"></div>
+  </section>
+
+  <section class="view" id="v-games"><div class="list" id="all"></div></section>
+
+  <section class="view" id="v-about">
+    <div class="about">
+      <h2>Spaedr Studio</h2>
+      <p>بازی‌های موبایل رو فارسی می‌کنیم و اینجا برای دانلود می‌ذاریم. تیم Spaedr ir پشت این پروژه‌ست.</p>
+    </div>
+  </section>
+
+  <div class="state" id="state">در حال بارگذاری بازی‌ها…</div>
 </div>
 
-<nav id="nav"></nav>
-<dialog id="dlg"></dialog>
+<nav class="nav" aria-label="منوی اصلی">
+  <button class="on" data-v="home"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M10 15c1.2 1 2.8 1 4 0"/></svg>خانه</button>
+  <button data-v="games"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="5"/><path d="M8 10v5M5.5 12.5h5M16 11.5h.01M18 13.5h.01"/></svg>بازی‌ها</button>
+  <button data-v="about"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>درباره</button>
+</nav>
+
+<dialog id="dlg"><div id="dbody"></div></dialog>
 
 <script>
-// ===== تنظیمات: فقط همین‌ها رو عوض کن =====
-const OWNER = 'samer405f16-dev';
+// ===== تنظیمات: فقط همین دو خط رو عوض کن =====
+const OWNER = 'douglashinkleh622-art';
 const REPO  = 'Spaedr-Studio';
-const TG    = '';   // لینک کانال تلگرام، مثلا https://t.me/xxxx (خالی = مخفی)
-// =========================================
-
+// ==============================================
 const $ = id => document.getElementById(id);
 const IMG = /\.(png|jpe?g|webp)$/i;
 const base = n => n.replace(/\.[^.]+$/, '').trim().toLowerCase();
@@ -97,7 +115,7 @@ const fa = n => Number(n).toLocaleString('fa-IR');
 const mb = b => fa((b / 1048576).toFixed(1)) + ' مگابایت';
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clean = md => md.replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/[#*_`>]/g, '').trim();
-let games = [], view = 'home', q = '', failed = false, loaded = false;
+let games = [];
 
 async function load() {
   const key = 'ss_cache_v2', now = Date.now();
@@ -109,90 +127,93 @@ async function load() {
   return d;
 }
 
-function parse(rels) {
+function parse(releases) {
   const out = [];
-  for (const rel of rels) {
+  for (const rel of releases) {
     if (rel.draft) continue;
     const apks = rel.assets.filter(a => /\.apk$/i.test(a.name));
-    const imgs = rel.assets.filter(a => IMG.test(a.name));
-    const isCover = i => /cover/i.test(i.name);
+    const all = rel.assets.filter(a => IMG.test(a.name));
+    const bans = all.filter(a => /-banner$/.test(base(a.name)));
+    const imgs = all.filter(a => !bans.includes(a));
     for (const apk of apks) {
-      const b = base(apk.name), one = apks.length === 1;
-      const cover = imgs.find(i => base(i.name) === b + '-cover') || (one && imgs.find(isCover));
-      const plain = imgs.filter(i => !isCover(i));
-      const icon = plain.find(i => base(i.name) === b) || (one && plain[0]);
-      const body = clean(rel.body || '');
+      const b = base(apk.name);
+      const icon = imgs.find(i => base(i.name) === b) || (apks.length === 1 ? imgs[0] : null);
+      const ban = bans.find(i => base(i.name) === b + '-banner') || (apks.length === 1 ? bans[0] : null);
       out.push({
-        name: one ? (rel.name || apk.name.replace(/\.apk$/i, '')) : apk.name.replace(/\.apk$/i, ''),
-        tag: rel.tag_name, date: rel.published_at, body, sub: body.split('\n')[0].slice(0, 60) || 'نسخه فارسی‌شده',
+        name: apks.length > 1 ? apk.name.replace(/\.apk$/i, '') : (rel.name || apk.name.replace(/\.apk$/i, '')),
+        tag: rel.tag_name, date: rel.published_at, body: rel.body || '',
         url: apk.browser_download_url, size: apk.size, dl: apk.download_count,
-        icon: icon ? icon.browser_download_url : '', cover: cover ? cover.browser_download_url : ''
+        icon: icon ? icon.browser_download_url : '', banner: ban ? ban.browser_download_url : ''
       });
     }
   }
   return out;
 }
 
-const ic = (g, cls = '') => `<div class="ic ${cls}">${g.icon ? `<img src="${g.icon}" alt="" loading="lazy" onerror="this.remove()">` : ''}${g.icon ? '' : esc(g.name.charAt(0))}</div>`;
+const ico = g => g.icon
+  ? `<div class="ico"><img src="${g.icon}" alt="" loading="lazy" onerror="this.parentNode.textContent='${esc(g.name.charAt(0))}'"></div>`
+  : `<div class="ico">${esc(g.name.charAt(0))}</div>`;
 const idx = g => games.indexOf(g);
 const byNew = () => [...games].sort((a, b) => new Date(b.date) - new Date(a.date));
-const byPop = () => [...games].sort((a, b) => b.dl - a.dl);
+const byDl = () => [...games].sort((a, b) => b.dl - a.dl);
 
-const slide = g => `<div class="slide" data-i="${idx(g)}">
-  <div class="banner">${g.cover ? `<img class="bg" src="${g.cover}" alt="">` : g.icon ? `<img class="bg blur" src="${g.icon}" alt=""><img class="big" src="${g.icon}" alt="">` : ''}
-  <div class="shade"></div><h3>${esc(g.name)}</h3></div>
-  <div class="feat">${ic(g)}<div class="tx"><b>${esc(g.name)}</b><small>${esc(g.sub)}</small></div><a class="inst" href="${g.url}" data-stop>نصب</a></div></div>`;
-const tile = g => `<div class="tile" data-i="${idx(g)}" tabindex="0">${ic(g)}<p>${esc(g.name)}</p></div>`;
-const row = g => `<div class="row" data-i="${idx(g)}" tabindex="0">${ic(g)}<div class="tx"><b>${esc(g.name)}</b><small>${mb(g.size)} · ${fa(g.dl)} دانلود</small></div><a class="inst" href="${g.url}" data-stop>نصب</a></div>`;
-const section = (t, list, key) => `<div class="sec"><div class="sh"><h2>${t}</h2><button data-go="${key}">همه ‹</button></div><div class="tiles">${list.slice(0, 12).map(tile).join('')}</div></div>`;
+const rowOf = list => `<div class="row">${list.map(g => `<div class="card" tabindex="0" data-i="${idx(g)}">${ico(g)}<p>${esc(g.name)}</p></div>`).join('')}</div>`;
+const listOf = list => list.map(g => `
+  <div class="li" tabindex="0" data-i="${idx(g)}">${ico(g)}
+    <div class="info"><b>${esc(g.name)}</b><span class="sub">${mb(g.size)} · ${fa(g.dl)} دانلود</span></div>
+    <a class="btn" href="${g.url}" onclick="event.stopPropagation()">نصب</a>
+  </div>`).join('');
 
 function render() {
-  let h = '';
-  if (!loaded) h = `<div class="empty">در حال بارگذاری بازی‌ها…</div>`;
-  else if (failed) h = `<div class="empty">خطا در دریافت بازی‌ها. چند دقیقه بعد دوباره امتحان کن.</div>`;
-  else if (q) {
-    const l = games.filter(g => g.name.toLowerCase().includes(q.toLowerCase()));
-    h = l.length ? `<div class="list">${l.map(row).join('')}</div>` : `<div class="empty">بازی‌ای با این نام پیدا نشد.</div>`;
-  } else if (view === 'about') {
-    h = `<div class="about"><h2>درباره Spaedr Studio</h2><p>ما بازی‌های موبایل رو فارسی‌سازی می‌کنیم و اینجا رایگان در اختیارت می‌ذاریم. هر بازی جدید خودکار به این فهرست اضافه میشه.</p><p>پشتیبانی: تیم Spaedr ir</p>${TG ? `<a class="inst" href="${TG}">کانال تلگرام</a>` : ''}</div>`;
-  } else if (!games.length) h = `<div class="empty">هنوز بازی‌ای منتشر نشده.</div>`;
-  else if (view === 'games' || view === 'new' || view === 'pop') {
-    const l = view === 'pop' ? byPop() : byNew();
-    h = `<div class="sh" style="padding-top:12px"><h2>${view === 'pop' ? 'محبوب‌ترین‌ها' : view === 'new' ? 'جدیدترین‌ها' : 'همه بازی‌ها'}</h2><span class="mut" style="color:var(--mut)">${fa(l.length)} بازی</span></div><div class="list">${l.map(row).join('')}</div>`;
-  } else {
-    h = `<div class="rail">${byNew().slice(0, 6).map(slide).join('')}</div>` + section('محبوب‌ترین‌ها', byPop(), 'pop') + section('جدیدترین‌ها', byNew(), 'new');
-  }
-  $('view').innerHTML = h;
-  const t = (k, l, svg) => `<button data-go="${k}" class="${!q && view === k ? 'on' : ''}">${svg}<span>${l}</span></button>`;
-  const s = p => `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
-  $('nav').innerHTML =
-    t('home', 'خانه', s('<path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/>')) +
-    t('games', 'بازی', s('<rect x="3" y="8" width="18" height="10" rx="5"/><path d="M8 11v4M6 13h4M16 12h.01M18 14h.01"/>')) +
-    (TG ? `<a href="${TG}">${s('<path d="M21 4 3 11l6 2 2 6 3-4 5 3z"/>')}<span>کانال</span></a>` : '') +
-    t('about', 'درباره', s('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>'));
+  const q = $('q').value.trim().toLowerCase();
+  const none = !games.length;
+  $('state').style.display = none ? 'block' : 'none';
+  if (none) return;
+  if (q) { show('games'); const r = games.filter(g => g.name.toLowerCase().includes(q)); $('all').innerHTML = r.length ? listOf(byNew().filter(g => r.includes(g))) : '<div class="state">بازی‌ای با این نام پیدا نشد.</div>'; return; }
+  const news = byNew();
+  $('banners').innerHTML = news.slice(0, 5).map(g => `
+    <div class="bn" tabindex="0" data-i="${idx(g)}">
+      <div class="bg ${g.banner ? '' : 'blur'}" style="background-image:url('${g.banner || g.icon}')"></div>
+      ${g.banner && g.icon ? `<img class="ic" src="${g.icon}" alt="">` : ''}
+      <div class="t"><b>${esc(g.name)}</b><span>فارسی‌شده توسط Spaedr Studio</span></div>
+      <span class="chip">دانلود</span>
+    </div>`).join('');
+  const f = news[0];
+  $('feat').innerHTML = `${ico(f).replace('class="ico"', 'class="ico" style="width:78px"')}
+    <div class="info"><b>${esc(f.name)}</b><span class="sub">جدیدترین نسخه فارسی · ${mb(f.size)}</span></div>
+    <a class="btn" href="${f.url}">نصب</a>`;
+  $('homeRows').innerHTML = `
+    <div class="sec"><h2>جدیدترین‌ها</h2><a data-go="games">همه ‹</a></div>${rowOf(news.slice(0, 12))}
+    <div class="sec"><h2>محبوب‌ترین‌ها</h2><a data-go="games">همه ‹</a></div>${rowOf(byDl().slice(0, 12))}`;
+  $('all').innerHTML = listOf(news);
+}
+
+function show(v) {
+  document.querySelectorAll('.view').forEach(e => e.classList.toggle('on', e.id === 'v-' + v));
+  document.querySelectorAll('.nav button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  scrollTo(0, 0);
 }
 
 function openGame(i) {
-  const g = games[i];
-  $('dlg').innerHTML = `<div class="dh">${ic(g)}<div><h2>${esc(g.name)}</h2><small>نسخه ${esc(g.tag)} · ${mb(g.size)}<br>${new Date(g.date).toLocaleDateString('fa-IR')} · ${fa(g.dl)} دانلود</small></div></div>
-  <div class="desc">${esc(g.body || 'نسخه فارسی‌شده توسط Spaedr Studio')}</div><a class="dl" href="${g.url}">دانلود بازی</a>`;
+  const g = games[i], d = clean(g.body);
+  $('dbody').innerHTML = `
+    <div class="dh">${ico(g)}<div><h3>${esc(g.name)}</h3><span class="sub">نسخه ${esc(g.tag)} · ${mb(g.size)}<br>${new Date(g.date).toLocaleDateString('fa-IR')} · ${fa(g.dl)} دانلود</span></div></div>
+    <div class="desc">${esc(d || 'نسخه فارسی‌شده توسط Spaedr Studio')}</div>
+    <a class="btn fill dl" href="${g.url}">دانلود بازی</a>`;
   $('dlg').showModal();
 }
 
 document.addEventListener('click', e => {
-  if (e.target.closest('[data-stop]')) return;
-  const go = e.target.closest('[data-go]');
-  if (go) { view = go.dataset.go; q = ''; $('q').value = ''; render(); scrollTo(0, 0); return; }
-  const it = e.target.closest('[data-i]');
-  if (it) openGame(+it.dataset.i);
+  const go = e.target.closest('[data-go]'); if (go) return show(go.dataset.go);
+  const it = e.target.closest('[data-i]'); if (it) openGame(+it.dataset.i);
 });
 document.addEventListener('keydown', e => { if (e.key === 'Enter') { const it = e.target.closest('[data-i]'); if (it) openGame(+it.dataset.i); } });
+document.querySelectorAll('.nav button').forEach(b => b.onclick = () => { $('q').value = ''; render(); show(b.dataset.v); });
 $('dlg').addEventListener('click', e => { if (e.target === $('dlg')) $('dlg').close(); });
-$('q').addEventListener('input', e => { q = e.target.value.trim(); render(); });
+$('q').addEventListener('input', render);
 
-render();
-load().then(r => { games = parse(r); loaded = true; render(); })
-      .catch(() => { failed = true; loaded = true; render(); });
+load().then(r => { games = parse(r); if (!games.length) $('state').textContent = 'هنوز بازی‌ای منتشر نشده.'; render(); })
+      .catch(() => { $('state').textContent = 'خطا در دریافت بازی‌ها. چند دقیقه بعد دوباره امتحان کن.'; });
 </script>
 </body>
 </html>
